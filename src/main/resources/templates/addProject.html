@@ -34,13 +34,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <p><h2>Enter project values</h2></p>
-                                <td><input th:placeholder="Name" th:field="*{name}" required/></td>
-                                <td><input th:field="*{clientName}" required/></td>
-                                <td><input th:placeholder="Country" th:field="*{country}" required/></td>
-                                <td><input th:placeholder="Status" th:field="*{status}" required/></td>
-                                <td><input type="date" th:field="*{{startDate}}" required/></td>
-                                <td><input type="date" th:field="*{{endDate}}" required/></td>
+                        <p>
+                        <h2>Enter project values</h2></p>
+                        <td><input th:placeholder="Name" th:field="*{name}" required/></td>
+                        <td><input th:field="*{clientName}" required/></td>
+                        <td><input th:placeholder="Country" th:field="*{country}" required/></td>
+                        <td><input th:placeholder="Status" th:field="*{status}" required/></td>
+                        <td><input type="date" th:field="*{{startDate}}" required/></td>
+                        <td><input type="date" th:field="*{{endDate}}" required/></td>
                         </tbody>
                     </table>
                     <table class="table">
@@ -52,11 +53,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <p><h2>Enter project members</h2></p>
+                        <p>
+                        <h2>Enter project members</h2></p>
                         <tr th:each="member, itemStat : *{memberList}">
-                                <td><input th:placeholder="Name + ' ' + ${itemStat.count}" th:field="*{memberList[__${itemStat.index}__].name}" required/></td>
-                                <td><input th:placeholder="Surname + ' ' + ${itemStat.count}" th:field="*{memberList[__${itemStat.index}__].surname}" required/>
-                                <td><input th:placeholder="Role + ' ' + ${itemStat.count}" th:field="*{memberList[__${itemStat.index}__].role}" required/></td>
+                            <td><input th:placeholder="Name + ' ' + ${itemStat.count}"
+                                       th:field="*{memberList[__${itemStat.index}__].name}" required/></td>
+                            <td><input th:placeholder="Surname + ' ' + ${itemStat.count}"
+                                       th:field="*{memberList[__${itemStat.index}__].surname}" required/>
+                            <td><input th:placeholder="Role + ' ' + ${itemStat.count}"
+                                       th:field="*{memberList[__${itemStat.index}__].role}" required/></td>
                         </tr>
                         </tbody>
                     </table>

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @org.springframework.stereotype.Service
 @Transactional
@@ -25,6 +26,7 @@ public class Service {
     Mapper mapper;
 
     public ProjectDto getProjectByName(String name) throws NoElementFoundException {
+        Optional<Project> projectByNameIgnoreCase = projectRepository.findProjectByNameIgnoreCase(name);
 
         return projectRepository.findProjectByNameIgnoreCase(name).map(mapper::projectEntityToDto).
                 orElseThrow(() -> new NoElementFoundException("Project not found"));

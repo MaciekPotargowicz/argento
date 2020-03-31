@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>All Projects</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 <body>
 <div class="container">
@@ -15,13 +15,13 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th> Projects Names </th>
-                    <th> Status </th>
+                    <th> Projects Names</th>
+                    <th> Status</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:if="${projects.isEmpty()}">
-                    <td colspan="2"> No Projects Available </td>
+                    <td colspan="2"> No Projects Available</td>
                 </tr>
                 <tr th:each="project : ${projects}">
                     <td><span th:text="${project.name}"> Project name </span></td>
@@ -32,9 +32,11 @@
         </div>
         <div class="col-md-6">
             <a class="btn btn-success" href="#" th:href="@{/projects/create}"> Add Project </a>
-            <a class="btn btn-primary" href="#" th:href="@{/projects/search}" th:classappend="${projects.isEmpty()} ? 'disabled' : ''"> Edit Projects </a>
-            <a class="btn btn-primary" href="#" th:href="@{/projects/search}" th:classappend="${projects.isEmpty()} ? 'disabled' : ''"> DeleteProject </a>
-
+            <a class="btn btn-primary" href="#" th:href="@{/projects/search}"
+               th:classappend="${projects.isEmpty()} ? 'disabled' : ''"> Edit Projects </a>
+            <a class="btn btn-primary" href="#" th:href="@{/projects/search}"
+               th:classappend="${projects.isEmpty()} ? 'disabled' : ''"> DeleteProject </a>
+            <a class="btn btn-info" href="#" th:href="@{/projects/}"> Go to Menu </a>
         </div>
     </div>
 </div>
