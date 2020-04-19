@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  database:
+    image: mysql:8.0.19
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=admin
+      - MYSQL_DATABASE=projects
+      - MYSQL_ONETIME_PASSWORD=true
+    ports:
+      - 3306:3306
+    restart: always
+
+  argentoapp:
+    build: ./
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/projects?useSSL=false&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=admin
+    restart: always
+    
